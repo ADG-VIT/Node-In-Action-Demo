@@ -10,7 +10,8 @@ app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
 let collection;
-const client = new MongoClient(data.uri, { useNewUrlParser: true, useUnifiedTopology: true });
+const uri = "";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 try {
     client.connect(async err => {
