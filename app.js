@@ -45,14 +45,6 @@ app.post("/new", (req, res) => {
     res.redirect("/");
 });
 
-app.get("/note", (res) => {
-    res.render('notes');
-});
-
-app.post("/note", (req, res) => {
-    res.redirect("/");
-});
-
 app.listen(3000, () => {
     console.log("Server started at port 3000");
 });
