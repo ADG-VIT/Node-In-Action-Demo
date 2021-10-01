@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+:root {
+    --dark: #222831;
+    --accent: #393E46;
+    --blue: #00ADB5;
+    --light: #EEEEEE;
+}
+
+* , *::before , *::after {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    width: 0.5em;
+}
+ 
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2em var(--dark);
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  outline: 1px solid var(--blue);
+}
+
+html{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--light);
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--dark);
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: var(--dark);
+}
+
+.navbar {
+    width: 100%;
+    background-color: var(--accent);
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.navbar .nav-item {
+    cursor: pointer;
+    transition: transform 50ms linear;
+}
+
+.nav-item:hover {
+    transform: scale(1.1);
+}
+
+.main-container {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.main-container .card {
+    height: 250px;
+    width: 250px;
+    background-color: var(--blue);
+    color: var(--dark);
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 15px;
+    transition: transform 50ms linear;
+}
+
+.main-container .card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.main-container .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.main-container .message {
+    width: 100%;
+}
+
+.Modal {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-transition: 0.5s;
+    overflow: auto;
+    transition: all 0.3s linear;
+}
+
+.Modal-content {
+    background-color: var(--accent);
+    padding: 20px;
+    border-radius: 10px;
+    min-width: 70%;
+}
+
+.card-Modal-content{
+    background-color: var(--accent);
+    padding: 20px;
+    border-radius: 10px;
+    width: 40%;
+}
+
+.card-Modal-content .title , .card-Modal-content .message {
+    margin-bottom: 5px;
+}
+
+.Modal-content h1 {
+    margin-bottom: 15px;
+}
+
+.Modal-content form {
+    display: flex;
+    max-height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.Modal-content form div {
+    width: 100%;
+}
+
+.Modal-content form label {
+    display: block;
+    margin-bottom: 3px;
+}
+
+.Modal-content form input{
+    background-color: var(--dark);
+    color: var(--light);
+    border: none;
+    font-size: 1rem;
+    height: auto;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.Modal-content form textarea {
+    background-color: var(--dark);
+    color: var(--light);
+    border: none;
+    font-size: 1rem;
+    margin: 0;
+    outline: 0;
+    padding: 15px;
+    height: auto;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.btn {
+    padding: 15px;
+    background-color: var(--blue);
+    color: var(--dark);
+    font-size: 1rem;
+    margin-top: 15px;
+    border-radius: 15px;
+    border-style: none;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.ModalOpen {overflow: hidden;}
+
+.is-hidden {display: none;}
+
+.is-visuallyHidden {opacity: 0;}
+
+.Close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 2rem;
+}
+
+.Close:hover, .Close:focus {
+    color: var(--dark);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.is-blurred {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+}
