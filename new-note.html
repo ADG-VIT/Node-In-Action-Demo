@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Notes</title>
+        <link rel="stylesheet" href="css/styles.css" />
+    </head>
+    <header>Apple Developers Group</header>
+    <body>
+        <div id="myModal" class="new-note Modal">
+            <div class="Modal-content">
+                <h1>Add New Note</h1>
+                <form action="/new" method="POST">
+                    <div>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" />
+                    </div>
+
+                    <div>
+                        <label for="message">Message</label>
+                        <textarea
+                            name="message"
+                            id="message"
+                            cols="30"
+                            rows="10"
+                        ></textarea>
+                    </div>
+                    <button class="btn" type="submit">Add New Note</button>
+                </form>
+            </div>
+        </div>
+    </body>
+    <footer>&copy Code Node 2021</footer>
+</html>    

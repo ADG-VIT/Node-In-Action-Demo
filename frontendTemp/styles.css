@@ -38,6 +38,13 @@ body {
     background-color: var(--dark);
 }
 
+footer {
+    text-align: center;
+    padding: 10px;
+    font-size: medium;
+    background-color: var(--accent);
+}
+
 .container {
     height: 100%;
     width: 100%;

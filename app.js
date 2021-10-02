@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
-let collection;
+/*let collection;
 const uri = "";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -23,24 +23,25 @@ try {
     });
 } catch (e) {
     console.log(e);
-}
+}*/
 
-app.get("/", async (res) => {
-    if (collection !== undefined)
-        let notesList = await collection.find({}).toArray();
+app.get("/", async (req, res) => {
+    //if (collection !== undefined)
+    //    let notesList = await collection.find({}).toArray();
+    let notesList = []
     res.render('home', {notes : notesList});
 });
 
-app.get("/new", (res) => {
+app.get("/new", (req, res) => {
     res.sendFile(__dirname + "/new-note.html");
 });
 
 app.post("/new", (req, res) => {
     const data = req.body;
-    const note = {title: data.title, body: data.body};
+    const note = {title: data.title, msg: data.message};
 
-    if (collection !== undefined)
-        response = await collection.insertOne(note);
+    //if (collection !== undefined)
+    //    response = await collection.insertOne(note);
           
     res.redirect("/");
 });
