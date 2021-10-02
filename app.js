@@ -9,42 +9,48 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
 
-/*let collection;
-const uri = "";
+let collection;
+const uri = process.env.MONGODB_STRING;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-try {
-    client.connect(async err => {
-        if (err) {
-            console.log(err);
-        } else {
-            collection = await client.db().collection();
-        }
-    });
-} catch (e) {
-    console.log(e);
-}*/
-
-let notesList = []
-
-app.get("/", async (req, res) => {
-    //if (collection !== undefined)
-    //    let notesList = await collection.find({}).toArray();
-    res.render('home', {notes : notesList});
+app.get("/", (req, res) => {
+    try {
+        client.connect(async err => {
+            if (err) {
+                console.log(err);
+            } else {
+                collection = await client.db("CodeNode").collection("Notes");
+                var notesList = await collection.find({}).toArray();
+                res.render('home', {notes : notesList});
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
 });
 
 app.get("/new", (req, res) => {
     res.sendFile(__dirname + "/new-note.html");
 });
 
-app.post("/new", (req, res) => {
+app.post("/new", async (req, res) => {
     const data = req.body;
     const note = {title: data.title, msg: data.message};
-    notesList.push(note);
-    //if (collection !== undefined)
-    //    response = await collection.insertOne(note);
-          
-    res.redirect("/");
+
+    try {
+        client.connect(async err => {
+            if (err) {
+                console.log(err);
+            } else {
+                collection = await client.db("CodeNode").collection("Notes");
+                var response = await collection.insertOne(note);
+                if (response.acknowledged)
+                    res.redirect("/");
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }       
 });
 
 app.listen(3000, () => {
