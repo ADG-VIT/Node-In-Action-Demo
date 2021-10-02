@@ -1,11 +1,10 @@
 <%- include('header'); -%>   
     <div class="main-container">
+      <% for (var i = 0; i<notes.length; i++) { %>
         <div class="card test">
-            <div class="title">This is title</div>
-            <div class="message">
-                This is message Lorem ipsum dolor sit amet consectetur adipisicing
-                elit. Omnis, facere suscipit praesentium beatae nihil maiores
-            </div>
-        </div>    
+            <div class="title"><%= notes[i].title %></div>
+            <div class="message"><%= notes[i].msg %></div>
+        </div>
+      <% } %>      
     </div>
 <%- include('footer'); -%>

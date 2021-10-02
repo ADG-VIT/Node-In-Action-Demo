@@ -52,13 +52,6 @@ footer {
     background-color: var(--dark);
 }
 
-.main-footer {
-    text-align: center;
-    padding: 10px;
-    font-size: medium;
-    background-color: var(--accent);
-}
-
 .container {
     height: 100%;
     width: 100%;
@@ -71,7 +64,7 @@ footer {
     height: 50px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     padding: 0px 20px;
 }

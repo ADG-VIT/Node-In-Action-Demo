@@ -25,10 +25,11 @@ try {
     console.log(e);
 }*/
 
+let notesList = []
+
 app.get("/", async (req, res) => {
     //if (collection !== undefined)
     //    let notesList = await collection.find({}).toArray();
-    let notesList = []
     res.render('home', {notes : notesList});
 });
 
@@ -39,7 +40,7 @@ app.get("/new", (req, res) => {
 app.post("/new", (req, res) => {
     const data = req.body;
     const note = {title: data.title, msg: data.message};
-
+    notesList.push(note);
     //if (collection !== undefined)
     //    response = await collection.insertOne(note);
           
